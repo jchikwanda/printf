@@ -39,11 +39,8 @@ int _printf(const char *format, ...)
 				break;
 			case '%':
 				_putchar('%');
-				bytes += 2;
+				bytes++;
 				break;
-			default:
-				_putchar('%');
-				bytes += 2;
 			}
 		}
 		else
