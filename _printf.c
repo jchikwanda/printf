@@ -12,8 +12,7 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, bytes = 0;
-	char *string;
-	char character;
+	char *string, character;
 
 	if (!format)
 		return (-1);
@@ -24,7 +23,10 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			i++;
+			do {
+				i++;
+			} while (format[i] == ' ');
+
 			switch (format[i])
 			{
 			case 'c':
