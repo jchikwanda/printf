@@ -41,6 +41,10 @@ int _printf(const char *format, ...)
 				_putchar('%');
 				bytes++;
 				break;
+			default:
+				bytes++;
+				i--;
+				_putchar(format[i]);
 			}
 		}
 		else
