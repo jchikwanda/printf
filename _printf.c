@@ -34,8 +34,8 @@ int _printf(const char *format, ...)
 				break;
 			case 's':
 				string = va_arg(args, char *);
-				bytes += _strlen(string);
-				print_string(string);
+				bytes += _strlen(string ? string : "(null)");
+				print_string(string ? string : "(null)");
 				break;
 			case '%':
 				_putchar('%');
