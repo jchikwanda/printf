@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int i = 0, bytes = 0;
-	char *string, character;
 
 	if (!format)
 		return (-1);
@@ -27,27 +26,7 @@ int _printf(const char *format, ...)
 				i++;
 			} while (format[i] == ' ');
 
-			switch (format[i])
-			{
-			case 'c':
-				character = va_arg(args, int);
-				_putchar(character);
-				bytes++;
-				break;
-			case 's':
-				string = va_arg(args, char *);
-				bytes += _strlen(string ? string : "(null)");
-				print_string(string ? string : "(null)");
-				break;
-			case '%':
-				_putchar('%');
-				bytes++;
-				break;
-			default:
-				bytes++;
-				i--;
-				_putchar(format[i]);
-			}
+			handle_switch(&i, &bytes, format, args);
 		}
 		else
 		{

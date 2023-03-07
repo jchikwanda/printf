@@ -17,4 +17,7 @@ void print_number(int n);
 void print_float(float f, int precision);
 void print_string(char *str);
 
+/* Prinf Helper Functions */
+void handle_switch(int *index, int *bytes, const char *format, va_list args);
+
 #endif
