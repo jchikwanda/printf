@@ -11,6 +11,7 @@
 void handle_switch(int *index, int *bytes, const char *format, va_list args)
 {
 	char *string, character;
+	int number;
 
 	switch (format[*index])
 	{
@@ -27,6 +28,12 @@ void handle_switch(int *index, int *bytes, const char *format, va_list args)
 	case '%':
 		_putchar('%');
 		*bytes = *bytes + 1;
+		break;
+	case 'd':
+	case 'i':
+		number = va_arg(args, int);
+		*bytes = *bytes + intlen(number);
+		print_number(number);
 		break;
 	default:
 		*bytes = *bytes + 1;
